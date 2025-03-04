@@ -1,0 +1,6 @@
+---
+- name: Install dependencies for project
+  hosts: all
+  become: yes
+  roles: 
+   - docker_install
