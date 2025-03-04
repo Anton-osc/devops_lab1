@@ -38,4 +38,10 @@ terraform.tfvars
 backend.tf
 
 # Ignore SSH private keys credentials files
-/.ssh/*
+**/.ssh/*
+
+# Ignore application
+/app
+
+# Ignore ansible hosts file
+ansible/hosts.txt
