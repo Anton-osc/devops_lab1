@@ -1,4 +1,4 @@
 resource "local_file" "ansible_hosts" {
-  content = "${digitalocean_droplet.web_server.ipv4_address}"
+  content = join("\n", [for ip in digitalocean_droplet.web_server[*].ipv4_address : "${ip}"])
   filename = "ansible/hosts.txt"
 }
