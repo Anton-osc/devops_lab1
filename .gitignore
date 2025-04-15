@@ -41,7 +41,7 @@ backend.tf
 **/.ssh/*
 
 # Ignore application
-/app
+/app/hiveemulator
 
 # Ignore ansible hosts file
 ansible/hosts.txt
