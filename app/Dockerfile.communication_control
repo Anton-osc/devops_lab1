@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0
+
+COPY . .
+
+WORKDIR /hiveemulator/src/CommunicationControl/DevOpsProject
+
+EXPOSE 8080
+
+ENTRYPOINT [ "dotnet", "run", "DevOpsProject.CommunicationControl.API.csproj" ]

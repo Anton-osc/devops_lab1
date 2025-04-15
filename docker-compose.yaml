@@ -1,0 +1,26 @@
+services:
+  db:
+    container_name: redis
+    image: redis
+
+  map-component:
+    container_name: map_component
+    build: 
+      context: ./app
+      dockerfile: Dockerfile.map_component
+    ports:
+      - 3000:3000
+
+  communication-control:
+    container_name: communication_control
+    build: 
+      context: ./app
+      dockerfile: Dockerfile.communication_control
+    ports:
+      - 8080:8080
+
+  hive-mind:
+    container_name: hive_mind
+    build: 
+      context: ./app
+      dockerfile: Dockerfile.hive_mind

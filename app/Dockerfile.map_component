@@ -1,0 +1,11 @@
+FROM node:latest
+
+COPY ./hiveemulator/src/MapClient/package.json hiveemulator/src/MapClient/package.json
+
+RUN cd /hiveemulator/src/MapClient && npm install
+
+COPY . .
+
+WORKDIR /hiveemulator/src/MapClient
+
+ENTRYPOINT [ "npm", "run", "dev" ]
