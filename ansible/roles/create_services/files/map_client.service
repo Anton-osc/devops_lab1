@@ -1,0 +1,10 @@
+[Unit]
+Description=Map Client
+
+[Service]
+WorkingDirectory=/root/hiveemulator/src/MapClient
+ExecStart=/bin/bash -c "npm run dev"
+Environment=PATH=/root/.nvm/versions/node/v18.19.1/bin:/usr/bin
+
+[Install]
+WantedBy=multi-user.target

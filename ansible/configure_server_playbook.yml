@@ -1,0 +1,9 @@
+---
+ - name: Install dependencies for project
+   hosts: all
+   roles: 
+    - docker_install
+ - name: Configure firewall
+   hosts: all
+   roles:
+    - iptables_deploy
