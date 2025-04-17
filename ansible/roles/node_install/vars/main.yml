@@ -1,3 +1,5 @@
 ---
 # vars file for node_install
-NODEJS_VERSION: "8"
+NVM_SCRIPT_DIR: "/root/install.sh"
+NODE_VERSION: "18.19.1"
+NVM_DIR: "/root/.nvm"

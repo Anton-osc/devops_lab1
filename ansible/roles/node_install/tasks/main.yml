@@ -1,16 +1,16 @@
 ---
 # tasks file for install_node
-- name: Add repository key
-  apt_key:
-   url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-- name: Add repository
-  apt_repository:
-   repo: deb https://deb.nodesource.com/node_{{ NODEJS_VERSION }}.x {{ ansible_distribution_release }} main
-   state: present
-- name: Apt update
-  apt: 
-   update_cache: yes
+- name: Download nvm
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
+    dest: '{{NVM_SCRIPT_DIR}}'
+    mode: '0777'
+- name: Install nvm
+  command: '{{NVM_SCRIPT_DIR}}'
 - name: Install node
-  apt:
-   name: nodejs
-   state: present
+  shell: |
+    export NVM_DIR="{{NVM_DIR}}"
+    source "$NVM_DIR/nvm.sh"
+    nvm install {{NODE_VERSION}}
+  args:
+    executable: /bin/bash
