@@ -3,6 +3,9 @@
    hosts: all
    roles: 
     - docker_install
+    - node_install
+    - dotnet_install
+    - create_services
  - name: Configure firewall
    hosts: all
    roles:
