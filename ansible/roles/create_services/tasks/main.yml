@@ -1,2 +1,6 @@
 ---
 # tasks file for create_services
+- name: Copy MapClient service file to the server
+  copy:
+    src: map_client.service
+    dest: "{{SERVICE_PATH}}map_client.service"

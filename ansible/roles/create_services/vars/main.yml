@@ -1,2 +1,3 @@
 ---
 # vars file for create_services
+SERVICE_PATH: "/etc/systemd/system/"
