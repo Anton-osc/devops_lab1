@@ -1,0 +1,6 @@
+---
+# tasks file for dotnet_install
+- name: Install dotnetsdk
+  apt:
+    name: dotnet-sdk-8.0
+    update_cache: yes
