@@ -1,9 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 
-COPY . .
+COPY ./hiveemulator/src/CommunicationControl/DevOpsProject.HiveMind.API/bin/Debug /app
 
-WORKDIR /hiveemulator/src/CommunicationControl/DevOpsProject.HiveMind.API
+WORKDIR /app/net8.0/
 
-EXPOSE 5149
-
-ENTRYPOINT [ "dotnet", "run", "DevOpsProject.HiveMind.API.csproj" ]
+ENTRYPOINT [ "dotnet", "DevOpsProject.HiveMind.API.dll" ]

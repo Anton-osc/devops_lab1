@@ -1,9 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 
-COPY . .
+COPY ./hiveemulator/src/CommunicationControl/DevOpsProject/bin/Debug /app
 
-WORKDIR /hiveemulator/src/CommunicationControl/DevOpsProject
+WORKDIR /app/net8.0/
 
 EXPOSE 8080
 
-ENTRYPOINT [ "dotnet", "run", "DevOpsProject.CommunicationControl.API.csproj" ]
+ENTRYPOINT [ "dotnet", "DevOpsProject.CommunicationControl.API.dll" ]
