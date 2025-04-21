@@ -6,6 +6,7 @@
     - node_install
     - dotnet_install
     - create_services
+    - clone_repo
  - name: Configure firewall
    hosts: all
    roles:

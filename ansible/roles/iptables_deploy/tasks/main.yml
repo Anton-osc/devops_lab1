@@ -1,16 +1,21 @@
 ---
 # tasks file for iptables_deploy
-- name: Allow tcp inbound traffic on 80 port
+- name: Allow tcp inbound traffic on 3000 port
   ansible.builtin.iptables:
     chain: INPUT
     protocol: tcp
-    destination_port: "80"
+    destination_port: "3000"
     jump: ACCEPT
-- name: Allow tcp inbound traffic on 443 port
+- name: Stateful firewall rule
+  ansible.builtin.iptables:
+    chain: INPUT
+    ctstate: RELATED,ESTABLISHED
+    jump: ACCEPT
+- name: Allow tcp inbound traffic on 8080 port
   ansible.builtin.iptables:
     chain: INPUT
     protocol: tcp
-    destination_port: "443"
+    destination_port: "8080"
     jump: ACCEPT
 - name: Allow inbound tcp traffic on 22 port
   ansible.builtin.iptables:

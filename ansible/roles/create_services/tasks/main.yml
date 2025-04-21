@@ -1,6 +1,10 @@
 ---
 # tasks file for create_services
-- name: Copy MapClient service file to the server
+- name: Copy service files to the server
   copy:
-    src: map_client.service
-    dest: "{{SERVICE_PATH}}map_client.service"
+    src: "{{item}}"
+    dest: "{{SERVICE_PATH}}{{item}}"
+  loop:
+   - map_client.service
+   - communication_control.service
+   - hive_mind.service
