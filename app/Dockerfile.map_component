@@ -4,7 +4,7 @@ COPY ./hiveemulator/src/MapClient/package.json hiveemulator/src/MapClient/packag
 
 RUN cd /hiveemulator/src/MapClient && npm install
 
-COPY . .
+COPY ./hiveemulator/src/MapClient .
 
 WORKDIR /hiveemulator/src/MapClient
 
