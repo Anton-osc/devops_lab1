@@ -1,0 +1,9 @@
+[Unit]
+Description=Hive Mind
+
+[Service]
+WorkingDirectory=/root/hiveemulator/src/CommunicationControl/DevOpsProject.HiveMind.API/bin/Debug/net8.0
+ExecStart=/bin/bash -c "dotnet DevOpsProject.HiveMind.API.dll"
+
+[Install]
+WantedBy=multi-user.target
