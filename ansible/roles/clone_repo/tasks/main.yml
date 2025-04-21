@@ -1,0 +1,6 @@
+---
+# tasks file for clone_repo
+- name: Clone application repo
+  git:
+    repo: "{{REPO_HTTPS_URL}}"
+    dest: "{{REPO_DEST}}"
