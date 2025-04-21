@@ -12,6 +12,5 @@
     export NVM_DIR="{{NVM_DIR}}"
     source "$NVM_DIR/nvm.sh"
     nvm install {{NODE_VERSION}}
-    nvm install vite
   args:
     executable: /bin/bash
