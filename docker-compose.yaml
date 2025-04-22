@@ -2,6 +2,8 @@ services:
   db:
     container_name: redis
     image: redis
+    networks:
+      - hive-mind_network
 
   map-component:
     container_name: map_component
@@ -10,6 +12,8 @@ services:
       dockerfile: Dockerfile.map_component
     ports:
       - 3000:3000
+    networks:
+      - hive-mind_network
 
   communication-control:
     container_name: communication_control
@@ -18,9 +22,18 @@ services:
       dockerfile: Dockerfile.communication_control
     ports:
       - 8080:8080
+    networks:
+      - hive-mind_network
 
   hive-mind:
     container_name: hive_mind
     build: 
       context: ./app
       dockerfile: Dockerfile.hive_mind
+    networks:
+      - hive-mind_network
+    depends_on:
+      - communication-control
+
+networks:
+  hive-mind_network:
