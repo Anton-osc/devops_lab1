@@ -2,10 +2,12 @@ FROM node:latest
 
 COPY ./hiveemulator/src/MapClient/package.json hiveemulator/src/MapClient/package.json
 
-RUN cd /hiveemulator/src/MapClient && npm install
+WORKDIR /hiveemulator/src/MapClient
+
+RUN npm install
 
 COPY ./hiveemulator/src/MapClient .
 
-WORKDIR /hiveemulator/src/MapClient
+EXPOSE 3000
 
 ENTRYPOINT [ "npm", "run", "dev" ]
