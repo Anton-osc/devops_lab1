@@ -7,9 +7,7 @@ services:
 
   map-component:
     container_name: map_component
-    build: 
-      context: ./app
-      dockerfile: Dockerfile.map_component
+    image: ant115ondzi/map-client
     ports:
       - 3000:3000
     networks:
@@ -17,9 +15,7 @@ services:
 
   communication-control:
     container_name: communication_control
-    build: 
-      context: ./app
-      dockerfile: Dockerfile.communication_control
+    image: ant115ondzi/communication-control
     ports:
       - 8080:8080
     networks:
@@ -27,13 +23,12 @@ services:
 
   hive-mind:
     container_name: hive_mind
-    build: 
-      context: ./app
-      dockerfile: Dockerfile.hive_mind
+    image: ant115ondzi/hive-mind
     networks:
       - hive-mind_network
     depends_on:
-      - communication-control
+      communication-control:
+        condition: service_started
 
 networks:
   hive-mind_network:
